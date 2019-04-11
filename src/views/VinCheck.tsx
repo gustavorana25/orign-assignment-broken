@@ -1,7 +1,7 @@
 import * as React from "react"
 import { connect } from "react-redux"
 
-import { VinInput } from "../components/VinInput"
+import { VinInput } from "../components/VinInput/VinInput"
 import { CarInfoPreview } from "../components/CarInfoPreview"
 import { actions, MapState, MapDispatch } from "../store"
 type Props = Pick<RootState, "vin" | "vinCheckResult" | "vinValidationError">
@@ -25,7 +25,4 @@ const mapDispatch: MapDispatch<Actions> = dispatch => ({
     checkVin: () => dispatch(actions.checkVin())
 })
 
-export const VinCheckView = connect(
-    mapState,
-    mapDispatch
-)(VinCheck)
+export const VinCheckView = connect(mapState, mapDispatch)(VinCheck)
