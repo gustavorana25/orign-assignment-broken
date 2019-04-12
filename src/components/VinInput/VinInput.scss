@@ -1,17 +1,39 @@
-$color: #ff9393;
+@import '../../styles/config';
+
 .VinInput {
-    display: flex;
+    position: relative;
+    padding-bottom: 1em;
     input {
         border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 1em;
         caret-color: #1056ad;
+        border:0;
+        background: $color-input-background;
+        padding: 0.4em;
+        -webkit-transition: $transition-primary;
+        transition: $transition-primary;
+    }
+
+    &--invalid{
+        input{
+            box-shadow: 0 0 2px 1px $color-error; 
+        }
     }
     &__Error {
-        color: $color;
+        color: $color-error;
+        font-size: 0.45em;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
 ::-webkit-input-placeholder {
-    color: #bbb
+    color: $color-palceholder;
 }
 
 *:focus {
