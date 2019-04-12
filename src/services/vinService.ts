@@ -15,7 +15,7 @@ export const convert = (_res: VinResultEntry): CarInfo => {
         ? {
               make: _res.Make,
               model: _res.Model,
-              year: parseInt(_res.ModelYear) ? parseInt(_res.ModelYear) : null,
+              year: Number(_res.ModelYear) ? Number(_res.ModelYear) : null,
               trim: _res.Trim,
               vehicleType: _res.VehicleType
           }
@@ -26,7 +26,7 @@ export const apiCheck = async (vin: string): Promise<CarInfo> => {
     const url = `https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvalues/${vin}?format=json`
     return get(url)
         .then((data: VinCheckResponse) => {
-            if (checkErrorResult(data)) throw "error"
+            if (checkErrorResult(data)) throw new Error("err")
             return convert(data.Results[0])
         })
         .catch(err => err)
