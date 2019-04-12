@@ -1,0 +1,29 @@
+@import 'config';
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700');
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: $color-background;
+    user-select: none;
+    font-size: 29px;
+    @media (max-width: $media-query-mobile) {
+        font-size: 18px;
+    }
+}
+
+.button{
+    font-size: 1em;
+    font-weight: 300;
+    border: none;
+    background: $color-primary;
+    color: white;
+    cursor: pointer;
+    -webkit-transition: $transition-primary;
+    transition: $transition-primary;
+    border-radius: $border-radius-buttons;
+    letter-spacing: -1px;
+}
